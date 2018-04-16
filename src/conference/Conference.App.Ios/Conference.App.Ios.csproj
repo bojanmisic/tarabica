@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{06F67291-57C6-44B2-9985-B5D36E462D23}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Conference.App.Ios</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Conference.App.Ios</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchSdkVersion>9.3</MtouchSdkVersion>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchNoSymbolStrip>False</MtouchNoSymbolStrip>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchEnableBitcode>False</MtouchEnableBitcode>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseRefCounting>False</MtouchUseRefCounting>
+    <OptimizePNGs>True</OptimizePNGs>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchFloat32>False</MtouchFloat32>
+    <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
+    <IOSDebuggerPort>10000</IOSDebuggerPort>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>True</MtouchDebug>
+    <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
+    <IOSDebuggerPort>10000</IOSDebuggerPort>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="app.config" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="www\fonts\Roboto-100\Roboto-100.eot" />
+    <None Include="www\fonts\Roboto-100\Roboto-100.ttf" />
+    <None Include="www\fonts\Roboto-100\Roboto-100.woff" />
+    <None Include="www\fonts\Roboto-100\Roboto-100.woff2" />
+    <None Include="www\fonts\Roboto-300\Roboto-300.eot" />
+    <None Include="www\fonts\Roboto-300\Roboto-300.ttf" />
+    <None Include="www\fonts\Roboto-300\Roboto-300.woff" />
+    <None Include="www\fonts\Roboto-300\Roboto-300.woff2" />
+    <None Include="www\fonts\Roboto-700\Roboto-700.eot" />
+    <None Include="www\fonts\Roboto-700\Roboto-700.ttf" />
+    <None Include="www\fonts\Roboto-700\Roboto-700.woff" />
+    <None Include="www\fonts\Roboto-700\Roboto-700.woff2" />
+    <None Include="www\fonts\Roboto-regular\Roboto-regular.eot" />
+    <None Include="www\fonts\Roboto-regular\Roboto-regular.ttf" />
+    <None Include="www\fonts\Roboto-regular\Roboto-regular.woff" />
+    <None Include="www\fonts\Roboto-regular\Roboto-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="WebViewController.designer.cs">
+      <DependentUpon>WebViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebViewController.cs" />
+    <None Include="packages.config" />
+    <Compile Include="Models\Model1.cs" />
+    <BundleResource Include="Resources\style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="JsBridge.iOS.Unified">
+      <HintPath>..\..\openmvvm\src\lib\jsbridge\JsBridge.iOS.Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Portable.Ninject.3.3.1\lib\Xamarin.iOS\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\openmvvm\src\Core\JS\platform\css\openmvvm.css">
+      <Link>www\platform\css\openmvvm.css</Link>
+    </Content>
+    <Content Include="..\..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.ios.js">
+      <Link>www\platform\js\openmvvm.bridge.ios.js</Link>
+    </Content>
+    <Content Include="..\..\openmvvm\src\Core\JS\platform\js\openmvvm.js">
+      <Link>www\platform\js\openmvvm.js</Link>
+    </Content>
+    <Content Include="..\..\openmvvm\src\Core\JS\platform\js\oss\mt.js">
+      <Link>www\platform\js\oss\mt.js</Link>
+    </Content>
+    <Content Include="Entitlements.plist" />
+    <Content Include="www\css\style.css" />
+    <Content Include="www\fonts\Roboto-100\LICENSE.txt" />
+    <Content Include="www\fonts\Roboto-100\Roboto-100.svg" />
+    <Content Include="www\fonts\Roboto-300\LICENSE.txt" />
+    <Content Include="www\fonts\Roboto-300\Roboto-300.svg" />
+    <Content Include="www\fonts\Roboto-700\LICENSE.txt" />
+    <Content Include="www\fonts\Roboto-700\Roboto-700.svg" />
+    <Content Include="www\fonts\Roboto-regular\LICENSE.txt" />
+    <Content Include="www\fonts\Roboto-regular\Roboto-regular.svg" />
+    <BundleResource Include="www\img\background-logo.jpg" />
+    <BundleResource Include="www\img\background.jpg" />
+    <BundleResource Include="www\img\logo.png" />
+    <BundleResource Include="www\img\user-sample.png" />
+    <BundleResource Include="www\img\icons\png\agenda.png" />
+    <BundleResource Include="www\img\icons\png\arrow-right.png" />
+    <BundleResource Include="www\img\icons\png\bus.png" />
+    <BundleResource Include="www\img\icons\png\car.png" />
+    <BundleResource Include="www\img\icons\png\category.png" />
+    <BundleResource Include="www\img\icons\png\close.png" />
+    <BundleResource Include="www\img\icons\png\facebook.png" />
+    <BundleResource Include="www\img\icons\png\heart.png" />
+    <BundleResource Include="www\img\icons\png\home.png" />
+    <BundleResource Include="www\img\icons\png\level.png" />
+    <BundleResource Include="www\img\icons\png\linkedin.png" />
+    <BundleResource Include="www\img\icons\png\location.png" />
+    <BundleResource Include="www\img\icons\png\map.png" />
+    <BundleResource Include="www\img\icons\png\room.png" />
+    <BundleResource Include="www\img\icons\png\speaker.png" />
+    <BundleResource Include="www\img\icons\png\time.png" />
+    <BundleResource Include="www\img\icons\png\twitter.png" />
+    <BundleResource Include="www\img\icons\png\calendar-add.png" />
+    <BundleResource Include="www\img\icons\png\refresh.png" />
+    <Content Include="www\img\icons\svg\agenda.svg" />
+    <Content Include="www\img\icons\svg\arrow-right.svg" />
+    <Content Include="www\img\icons\svg\bus.svg" />
+    <Content Include="www\img\icons\svg\calendar-add.svg" />
+    <Content Include="www\img\icons\svg\car.svg" />
+    <Content Include="www\img\icons\svg\category.svg" />
+    <Content Include="www\img\icons\svg\close.svg" />
+    <Content Include="www\img\icons\svg\facebook.svg" />
+    <Content Include="www\img\icons\svg\heart.svg" />
+    <Content Include="www\img\icons\svg\home.svg" />
+    <Content Include="www\img\icons\svg\level.svg" />
+    <Content Include="www\img\icons\svg\linkedin.svg" />
+    <Content Include="www\img\icons\svg\location.svg" />
+    <Content Include="www\img\icons\svg\map.svg" />
+    <Content Include="www\img\icons\svg\refresh.svg" />
+    <Content Include="www\img\icons\svg\room.svg" />
+    <Content Include="www\img\icons\svg\speaker.svg" />
+    <Content Include="www\img\icons\svg\time.svg" />
+    <Content Include="www\img\icons\svg\twitter.svg" />
+    <Content Include="www\index.html" />
+    <Content Include="www\js\app.js" />
+    <Content Include="www\js\hammer.min.js" />
+    <Content Include="www\js\jquery-3.1.1.min.js" />
+    <Content Include="www\js\modernizr.min.js" />
+    <Content Include="www\Views\FavoritesView.html" />
+    <Content Include="www\Views\MainView.html" />
+    <Content Include="www\Views\SessionView.html" />
+    <Content Include="www\Views\SpeakerView.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.Core\OpenMVVM.Core.csproj">
+      <Project>{BFF8F9FA-4729-4608-9D2A-B0FED7B41EA4}</Project>
+      <Name>OpenMVVM.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.Ios\OpenMVVM.Ios.csproj">
+      <Project>{74d004c4-775f-402c-bfe8-b5bdedc6077f}</Project>
+      <Name>OpenMVVM.Ios</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.WebView.Ios\OpenMVVM.WebView.Ios.csproj">
+      <Project>{FA080147-D6FB-453F-AEEC-B6A1B7321730}</Project>
+      <Name>OpenMVVM.WebView.Ios</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.WebView\OpenMVVM.WebView.csproj">
+      <Project>{175629a4-f877-4e3d-ad35-c952d540ece2}</Project>
+      <Name>OpenMVVM.WebView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\openmvvm\src\Utils\OpenMVVM.Utils.HttpClient\OpenMVVM.Utils.HttpClient.csproj">
+      <Project>{890694f6-cd94-4911-bf5e-6f34a62f1941}</Project>
+      <Name>OpenMVVM.Utils.HttpClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference.Common.Contracts\Conference.Common.Contracts.csproj">
+      <Project>{3fe06884-c7f5-4d2a-baa6-ee6ddb89bae8}</Project>
+      <Name>Conference.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference.Common.Data\Conference.Common.Data.csproj">
+      <Project>{ff83015f-9b34-40d5-b3ab-c9bb92c3de82}</Project>
+      <Name>Conference.Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference.Common.ViewModel\Conference.Common.ViewModel.csproj">
+      <Project>{567acead-ce93-42f5-9d8c-b06c65e56d7a}</Project>
+      <Name>Conference.Common.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+</Project>

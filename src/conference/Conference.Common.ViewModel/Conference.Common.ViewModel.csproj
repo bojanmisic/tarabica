@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.Core\OpenMVVM.Core.csproj" />
+    <ProjectReference Include="..\..\openmvvm\src\Utils\OpenMVVM.Utils.HttpClient\OpenMVVM.Utils.HttpClient.csproj" />
+    <ProjectReference Include="..\Conference.Common.Contracts\Conference.Common.Contracts.csproj" />
+    <ProjectReference Include="..\Conference.Common.Data\Conference.Common.Data.csproj" />
+  </ItemGroup>
+
+</Project>

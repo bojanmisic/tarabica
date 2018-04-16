@@ -1,0 +1,44 @@
+﻿<div data-view="FavoritesView" class="view-container with-header" data-context="FavoritesViewModel">
+    <header>
+        <a class="back" data-actions="{click: {command: 'GoBackCommand'}}">
+            <i class="ticon-arrow-left"></i>
+            Nazad
+        </a>
+        <div class="title">Odabrano</div>
+    </header>
+
+    <div class="view page-agenda">
+        <div class="list-by-time">
+            <ul data-repeat="FavoriteSessionGroups">
+                <li>
+                    <div class="time-header">
+                        <span data-bind="{textContent: 'GroupName'}"></span>
+                    </div>
+                    <ul data-repeat="Sessions">
+                        <li>
+                            <a data-context="FavoritesViewModel" data-actions="{click: {command: 'SessionSelectedCommand', parameter: context}}">
+                                <div class="session__icon" data-bind="{mvvmbgcolor: 'Track.TrackColor'}">
+                                    <div class="session__icon-text" data-bind="{textContent: 'Track.TrackShort'}"></div>
+                                </div>
+                                <div class="session__caption">
+                                    <div class="title" data-bind="{textContent: 'Title'}"></div>
+                                    <div class="speaker">
+                                        <i class="ticon-speaker"></i> <span data-bind="{textContent: 'Speakers'}"></span>
+                                    </div>
+                                    <div class="speaker speaker__secondary">
+                                        <i class="ticon-room"></i> <span data-bind="{textContent: 'Room'}"></span>
+                                        <i class="ticon-level"></i> <span>L</span><span data-bind="{textContent: 'Level'}"></span>
+                                    </div>
+                                </div>
+
+                                <div class="session__action action-close" data-context="FavoritesViewModel" data-actions="{click: {command: 'RemoveFavoriteCommand', parameter: context}}">
+                                    <i class="ticon-close"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,180 @@
+﻿<div data-view="MainView" class="view-container with-header with-footer" data-context="MainViewModel">
+    <header>
+        <a class="t__button-icon t__button-right" data-actions="{click: {command: 'PageItems[1].FavoritesCommand'}}" data-bind="{mvvmvisible : {path: 'CurrentPage.Title', converter: function(val){ return val === 'Agenda' ? 'block' : 'none' }}}">
+            <i class="ticon-heart"></i>
+        </a>
+        <a class="t__button-icon t__button-right" id="refresh-control" data-actions="{click: {command: 'PageItems[3].RefreshTweetsCommand'}}" data-bind="{mvvmvisible : {path: 'CurrentPage.Title', converter: function(val){ return val === 'Twitter' ? 'block' : 'none' }}}">
+            <i class="ticon-refresh"></i>
+        </a>
+
+        <div class="title" data-bind="{textContent: 'CurrentPage.Title'}"></div>
+    </header>
+    <div class="view-container" data-bind="{mvvmsubview : 'CurrentPage.Title'}">
+
+        <div class="t__loader t__loader-big t__loader-master" data-bind="{mvvmvisible : {path: 'IsLoading', converter: function(val){ return val == true ? 'block' : 'none' }}}">
+            <i class="ticon-loader"></i>
+        </div>
+        <!--<div class="t__message-holder">
+            <div class="t__message">
+                <div class="text">Ovo je neki tekst neke poruke</div>
+                <div class="action">
+                    <button>ok</button>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="view" data-bind="{mvvmvisible : {path: 'CurrentPage.Title', converter: function(val){ return val === 'Agenda' ? 'block' : 'none' }}}">
+            <div class="page-agenda">
+                <div class="list-by-time">
+                    <ul data-repeat="PageItems[1].SessionGroups">
+                        <li>
+                            <div class="time-header">
+                                <span data-bind="{textContent: 'GroupName'}"></span>
+                            </div>
+                            <ul data-repeat="Sessions">
+                                <li>
+                                    <a data-context="MainViewModel" data-actions="{click: {command: 'PageItems[1].SessionSelectedCommand', parameter: context}}">
+                                        <div class="session__icon" data-bind="{mvvmbgcolor: 'Track.TrackColor'}">
+                                            <div class="session__icon-text" data-bind="{textContent: 'Track.TrackShort'}"></div>
+                                        </div>
+                                        <div class="session__caption">
+                                            <div class="title" data-bind="{textContent: 'Title'}"></div>
+                                            <div class="speaker">
+                                                <span data-bind="{textContent: 'Speakers'}"></span> <span>(L</span><span data-bind="{textContent: 'Level'}"></span><span>)</span>
+                                            </div>
+                                        </div>
+                                        <div class="session__action">
+                                            <i class="ticon-arrow-right"></i>
+                                         </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="view" data-bind="{mvvmvisible : {path: 'CurrentPage.Title', converter: function(val){ return val === 'Home' ? 'block' : 'none' }}}">
+            <div class="view page-home">
+                <div class="brand">
+                    <h1>Tarabica</h1>
+                    <h2>IT Conference</h2>
+                </div>
+                <div class="info-block">
+                    <div class="calendar">
+                        <span>APR 08</span> / <span>2017</span> / <span>09:00</span>
+                    </div>
+                    <div class="location">
+                        Kumodraška 261, Beograd
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-container" data-bind="{mvvmvisible : {path: 'CurrentPage.Title', converter: function(val){ return val === 'Twitter' ? 'block' : 'none' }}}">
+
+            <div class="view-container page-twitter">
+
+                <div id="pullrefresh">
+                    <div class="message">
+                        <div id="pullrefresh-icon" class="icon arrow arrow-down"></div>
+                        <span></span>
+                    </div>
+                </div>
+
+                <ul class="view twitter-feed" id="twitter-scroll" data-repeat="PageItems[3].Tweets">
+                    <li>
+                        <div class="twitter__icon">
+                            <img data-bind="{src: 'ImageUrl'}" class="speaker__icon" />
+                        </div>
+                        <div class="twitter__content">
+                            <div class="twitter__content-header">
+                                <div class="twitter__username" data-bind="{textContent: 'UserName'}"></div>
+                                <div class="space"></div>
+                                <div class="twitter__timestamp" data-bind="{textContent: 'Timestamp'}"></div>
+                            </div>
+                            <a data-context="MainViewModel" data-actions="{click: {command: 'PageItems[3].TweetSelectedCommand', parameter: context}}">
+                                <div class="twitter__content-core" data-bind="{innerHTML: 'Text'}"></div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="view" data-bind="{mvvmvisible : {path: 'CurrentPage.Title', converter: function(val){ return val === 'Info' ? 'block' : 'none' }}}">
+            <div class="page-contact t__divider">
+                <ul class="contact-details">
+                    <li>
+                        <i class="ticon-map"></i>
+                        <span>Kumodraška 261, Beograd</span>
+                    </li>
+                    <li>
+                        <i class="ticon-time"></i>
+                        <span>08. April 2017. u 08:00</span>
+                    </li>
+                    <li>
+                        <i class="ticon-car"></i>
+                        <span>Besplatan parking</span>
+                    </li>
+                    <li>
+                        <i class="ticon-bus"></i>
+                        <span>Gradski prevoz: 25, 25P, 39</span>
+                    </li>
+                </ul>
+                <div class="contact-follow">
+                    <div class="caption">Pratite nas</div>
+                    <ul>
+                        <li>
+                            <a href="https://twitter.com/tarabicaconf" target="_blank"><i class="ticon-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/hashconference" target="_blank"><i class="ticon-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/tarabica-it-conference" target="_blank"><i class="ticon-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-privacy">
+                    <a data-actions="{click: {command: 'PageItems[4].PrivacyPolicyCommand'}}">Izjava o privatnosti</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="view" data-bind="{mvvmvisible : {path: 'CurrentPage.Title', converter: function(val){ return val === 'Predavači' ? 'block' : 'none' }}}">
+            <div class="page-speakers">
+                <ul class="speaker__list" data-repeat="PageItems[2].Speakers">
+                    <li>
+                        <a data-context="MainViewModel" data-actions="{click: {command: 'PageItems[2].SpeakerSelectedCommand', parameter: context}}">
+
+                            <div class="speaker__icon">
+                                <div class="speaker__icon-image" data-bind="{mvvmbgimage: {path: 'ImageUrl', converter: function(val){ return 'url(\'' + val + '\')' }}}"></div>
+                            </div>
+                            <div class="speaker__caption">
+                                <div class="name" data-bind="{textContent: 'Name'}"></div>
+                                <div class="description" data-bind="{textContent: 'Company'}"></div>
+                            </div>
+                            <div class="speaker__action">
+                                <i class="ticon-arrow-right"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <nav>
+            <ul data-repeat="PageItems">
+                <li data-bind="{className: {path: 'Active', converter: function(val){ return val ? 'active' : '' }}}">
+                    <a data-actions="{click: {command: 'GoToPageCommand', parameter: context}}" class="navigate">
+                        <i data-bind="{className: 'Icon'}"></i>
+                        <span data-bind="{textContent: 'Title'}"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>

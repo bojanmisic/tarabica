@@ -1,0 +1,53 @@
+﻿<div data-view="SpeakerView" class="view-container with-header" data-context="SpeakerViewModel">
+    <header>
+        <a class="back" data-actions="{click: {command: 'GoBackCommand'}}">
+            <i class="ticon-arrow-left"></i>
+            Nazad
+        </a>
+        <div class="title">Predavač</div>
+    </header>
+
+    <div class="view-container">
+        <div class="view page-speakers">
+            <div class="speaker__details t__divider">
+                <div class="speaker__header">
+                    <div class="speaker__icon">
+                        <div class="speaker__icon-image" data-bind="{mvvmbgimage: {path: 'ImageUrl', converter: function(val){ return 'url(\'' + val + '\')' }}}"></div>
+                    </div>
+                    <div class="speaker__caption">
+                        <div class="name" data-bind="{textContent: 'Name'}"></div>
+                        <div class="description" data-bind="{textContent: 'Company'}"></div>
+                    </div>
+                </div>
+                <div class="speaker__description" data-bind="{innerHTML: 'Bio'}">
+
+                </div>
+                <div class="speaker__sessions">
+                    <div class="speaker__sessions-title">Predavanja</div>
+                    <ul data-repeat="Sessions">
+                        <li>
+                            <div class="session__caption">
+                                <div class="title" data-bind="{textContent: 'Title'}"></div>
+                                <div class="info">
+                                    <div class="session__info">
+                                        <i class="ticon-category"></i>
+                                        <span data-bind="{textContent: 'Track.TrackShort'}"></span>
+                                    </div>
+                                    <div class="session__info">
+                                        <i class="ticon-level"></i>
+                                        <span>L</span>
+                                        <span data-bind="{textContent: 'Level'}"></span>
+                                    </div>
+                                    <div class="session__info">
+                                        <i class="ticon-room"></i>
+                                        <span data-bind="{textContent: 'Room'}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

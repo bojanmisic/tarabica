@@ -1,0 +1,62 @@
+﻿<div data-view="SessionView" class="view-container with-header" data-context="SessionViewModel">
+    <header>
+        <a class="back" data-actions="{click: {command: 'GoBackCommand'}}">
+            <i class="ticon-arrow-left"></i>
+            Nazad
+        </a>
+        <a class="t__button-icon t__button-right"
+            data-actions="{click: {command: 'FavoritesCommand'}}"
+            data-bind="{mvvmvisible : {path: 'IsFavorite', converter: function(val){ return val == true ? 'block' : 'none' }}}">
+            <i class="ticon-heart"></i>
+        </a>
+        <div class="title">Detalji</div>
+    </header>
+
+    <div class="view-container">
+        <div class="view page-session">
+            <a class="session__like" data-actions="{click: {command: 'ToggleFavoriteCommand'}}" data-bind="{mvvmvisible : {path: 'IsFavorite', converter: function(val){ return val == true ? 'none' : 'block' }}}">
+                <i class="ticon-heart"></i>
+            </a>
+            <div class="session__title t__divider" data-bind="{textContent: 'Title'}"></div>
+            <ul data-repeat="Speakers">
+                <li>
+                    <a class="session__block t__divider" data-context="SessionViewModel" data-actions="{click: {command: 'SpeakerSelectedCommand', parameter:context}}">
+                        <div class="session__info">
+                            <i class="ticon-speaker"></i>
+                            <span data-bind="{textContent: 'Name'}">></span>
+                        </div>
+                        <span class="session__speaker-link"><i class="ticon-arrow-right"></i></span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="session__block t__divider">
+                <div class="session__info">
+                    <i class="ticon-room"></i>
+                    <span data-bind="{textContent: 'Room'}"></span>
+                </div>
+                <div class="session__info">
+                    <i class="ticon-category"></i>
+                    <span data-bind="{textContent: 'Track'}"></span>
+                </div>
+                <div class="session__info">
+                    <i class="ticon-level"></i>
+                    <span>L</span>
+                    <span data-bind="{textContent: 'Level'}"></span>
+                </div>
+            </div>
+            <div class="session__block t__divider">
+                <div class="session__info">
+                    <i class="ticon-time"></i>
+                    <span data-bind="{textContent: 'Time'}"></span>
+                </div>
+                <div class="session__info" data-actions="{click: {command: 'AddToCalendarCommand'}}">
+                    <i class="ticon-calendar-add"></i>
+                    <span data-bind="{textContent: 'CalendarText'}"></span>
+                </div>
+
+            </div>
+            <div class="session__description t__divider" data-bind="{innerHTML: 'Description'}"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\DefaultConferenceData.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DefaultConferenceData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.Core\OpenMVVM.Core.csproj" />
+    <ProjectReference Include="..\..\openmvvm\src\Utils\OpenMVVM.Utils.HttpClient\OpenMVVM.Utils.HttpClient.csproj" />
+    <ProjectReference Include="..\Conference.Common.Contracts\Conference.Common.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

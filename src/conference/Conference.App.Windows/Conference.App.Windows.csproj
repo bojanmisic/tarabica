@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{F4251021-533B-416F-94F0-6EE4CD2E7C17}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Conference.App.Windows</RootNamespace>
+    <AssemblyName>Conference.App.Windows</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Conference.App.Windows_StoreKey.pfx</PackageCertificateKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>53DC7E913A2B49BB96738C65F0A929B22A2149A0</PackageCertificateThumbprint>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="..\..\openmvvm\src\Core\JS\platform\css\openmvvm.css">
+      <Link>www\platform\css\openmvvm.css</Link>
+    </Content>
+    <Content Include="..\..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.windows.js">
+      <Link>www\platform\js\openmvvm.bridge.windows.js</Link>
+    </Content>
+    <Content Include="..\..\openmvvm\src\Core\JS\platform\js\openmvvm.js">
+      <Link>www\platform\js\openmvvm.js</Link>
+    </Content>
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\BadgeLogo.scale-125.png" />
+    <Content Include="Assets\BadgeLogo.scale-150.png" />
+    <Content Include="Assets\BadgeLogo.scale-200.png" />
+    <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <None Include="Conference.App.Windows_StoreKey.pfx" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="www\img\icons\png\calendar-add.png" />
+    <Content Include="www\img\icons\png\refresh.png" />
+    <Content Include="www\img\icons\svg\calendar-add.svg" />
+    <Content Include="www\img\icons\svg\refresh.svg" />
+    <Content Include="www\Views\FavoritesView.html" />
+    <Content Include="www\Views\SpeakerView.html" />
+    <Content Include="www\Views\MainView.html" />
+    <Content Include="www\Views\SessionView.html" />
+    <None Include="www\fonts\Roboto-100\Roboto-100.eot" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="www\fonts\Roboto-100\Roboto-100.ttf" />
+    <None Include="www\fonts\Roboto-100\Roboto-100.woff" />
+    <None Include="www\fonts\Roboto-100\Roboto-100.woff2" />
+    <None Include="www\fonts\Roboto-300\Roboto-300.eot" />
+    <Content Include="www\fonts\Roboto-300\Roboto-300.ttf" />
+    <None Include="www\fonts\Roboto-300\Roboto-300.woff" />
+    <None Include="www\fonts\Roboto-300\Roboto-300.woff2" />
+    <None Include="www\fonts\Roboto-700\Roboto-700.eot" />
+    <Content Include="www\fonts\Roboto-700\Roboto-700.ttf" />
+    <None Include="www\fonts\Roboto-700\Roboto-700.woff" />
+    <None Include="www\fonts\Roboto-700\Roboto-700.woff2" />
+    <None Include="www\fonts\Roboto-regular\Roboto-regular.eot" />
+    <Content Include="www\fonts\Roboto-regular\Roboto-regular.ttf" />
+    <None Include="www\fonts\Roboto-regular\Roboto-regular.woff" />
+    <None Include="www\fonts\Roboto-regular\Roboto-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModelLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Conference.App.Windows_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="www\css\style.css" />
+    <Content Include="www\fonts\Roboto-100\LICENSE.txt" />
+    <Content Include="www\fonts\Roboto-100\Roboto-100.svg" />
+    <Content Include="www\fonts\Roboto-300\LICENSE.txt" />
+    <Content Include="www\fonts\Roboto-300\Roboto-300.svg" />
+    <Content Include="www\fonts\Roboto-700\LICENSE.txt" />
+    <Content Include="www\fonts\Roboto-700\Roboto-700.svg" />
+    <Content Include="www\fonts\Roboto-regular\LICENSE.txt" />
+    <Content Include="www\fonts\Roboto-regular\Roboto-regular.svg" />
+    <Content Include="www\img\background-logo.jpg" />
+    <Content Include="www\img\background.jpg" />
+    <Content Include="www\img\icons\png\agenda.png" />
+    <Content Include="www\img\icons\png\arrow-right.png" />
+    <Content Include="www\img\icons\png\bus.png" />
+    <Content Include="www\img\icons\png\car.png" />
+    <Content Include="www\img\icons\png\category.png" />
+    <Content Include="www\img\icons\png\close.png" />
+    <Content Include="www\img\icons\png\facebook.png" />
+    <Content Include="www\img\icons\png\heart.png" />
+    <Content Include="www\img\icons\png\home.png" />
+    <Content Include="www\img\icons\png\level.png" />
+    <Content Include="www\img\icons\png\linkedin.png" />
+    <Content Include="www\img\icons\png\location.png" />
+    <Content Include="www\img\icons\png\map.png" />
+    <Content Include="www\img\icons\png\room.png" />
+    <Content Include="www\img\icons\png\speaker.png" />
+    <Content Include="www\img\icons\png\time.png" />
+    <Content Include="www\img\icons\png\twitter.png" />
+    <Content Include="www\img\icons\svg\agenda.svg" />
+    <Content Include="www\img\icons\svg\arrow-right.svg" />
+    <Content Include="www\img\icons\svg\bus.svg" />
+    <Content Include="www\img\icons\svg\car.svg" />
+    <Content Include="www\img\icons\svg\category.svg" />
+    <Content Include="www\img\icons\svg\close.svg" />
+    <Content Include="www\img\icons\svg\facebook.svg" />
+    <Content Include="www\img\icons\svg\heart.svg" />
+    <Content Include="www\img\icons\svg\home.svg" />
+    <Content Include="www\img\icons\svg\level.svg" />
+    <Content Include="www\img\icons\svg\linkedin.svg" />
+    <Content Include="www\img\icons\svg\location.svg" />
+    <Content Include="www\img\icons\svg\map.svg" />
+    <Content Include="www\img\icons\svg\room.svg" />
+    <Content Include="www\img\icons\svg\speaker.svg" />
+    <Content Include="www\img\icons\svg\time.svg" />
+    <Content Include="www\img\icons\svg\twitter.svg" />
+    <Content Include="www\img\logo.png" />
+    <Content Include="www\img\user-sample.png" />
+    <Content Include="www\index.html" />
+    <Content Include="www\js\app.js" />
+    <Content Include="www\js\hammer.min.js" />
+    <Content Include="www\js\jquery-3.1.1.min.js" />
+    <Content Include="www\js\modernizr.min.js" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.Core\OpenMVVM.Core.csproj">
+      <Project>{0a385998-14f0-4489-8e00-e356036199e4}</Project>
+      <Name>OpenMVVM.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.WebView.Windows\OpenMVVM.WebView.Windows.csproj">
+      <Project>{2888c7fb-f66b-4349-85f3-c5dc037e29ae}</Project>
+      <Name>OpenMVVM.WebView.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.WebView\OpenMVVM.WebView.csproj">
+      <Project>{175629a4-f877-4e3d-ad35-c952d540ece2}</Project>
+      <Name>OpenMVVM.WebView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.Windows\OpenMVVM.Windows.csproj">
+      <Project>{dd056638-bd52-4eae-8b77-cf1a1337a708}</Project>
+      <Name>OpenMVVM.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\openmvvm\src\Utils\OpenMVVM.Utils.HttpClient\OpenMVVM.Utils.HttpClient.csproj">
+      <Project>{890694f6-cd94-4911-bf5e-6f34a62f1941}</Project>
+      <Name>OpenMVVM.Utils.HttpClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference.Common.Contracts\Conference.Common.Contracts.csproj">
+      <Project>{3fe06884-c7f5-4d2a-baa6-ee6ddb89bae8}</Project>
+      <Name>Conference.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference.Common.Data\Conference.Common.Data.csproj">
+      <Project>{ff83015f-9b34-40d5-b3ab-c9bb92c3de82}</Project>
+      <Name>Conference.Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference.Common.ViewModel\Conference.Common.ViewModel.csproj">
+      <Project>{567acead-ce93-42f5-9d8c-b06c65e56d7a}</Project>
+      <Name>Conference.Common.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bcl.Build">
+      <Version>1.0.21</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Net.Http">
+      <Version>2.2.29</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="Portable.Ninject">
+      <Version>3.3.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.16299.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
