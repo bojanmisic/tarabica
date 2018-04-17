@@ -30,10 +30,10 @@
 
             if (data.Successful)
             {
-                foreach (var speaker in data.Value.Speakers)
-                {
-                    speaker.PictureUrl = $"{data.Value.PicturesLocation}/{speaker.PictureUrl}";
-                }
+                //foreach (var speaker in data.Value.Speakers)
+                //{
+                //    speaker.PictureUrl = $"{data.Value.PicturesLocation}/{speaker.PictureUrl}";
+                //}
             }
             else
             {

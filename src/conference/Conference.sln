@@ -63,11 +63,32 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{CB99D5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{7581AD28-B425-4EC9-8239-5848DE7DBEB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conference.Common.Data", "Conference.Common.Data\Conference.Common.Data.csproj", "{FF83015F-9B34-40D5-B3AB-C9BB92C3DE82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conference.Common.Data", "Conference.Common.Data\Conference.Common.Data.csproj", "{FF83015F-9B34-40D5-B3AB-C9BB92C3DE82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conference.Common.ViewModel", "Conference.Common.ViewModel\Conference.Common.ViewModel.csproj", "{567ACEAD-CE93-42F5-9D8C-B06C65E56D7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conference.Common.ViewModel", "Conference.Common.ViewModel\Conference.Common.ViewModel.csproj", "{567ACEAD-CE93-42F5-9D8C-B06C65E56D7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conference.Common.Contracts", "Conference.Common.Contracts\Conference.Common.Contracts.csproj", "{3FE06884-C7F5-4D2A-BAA6-EE6DDB89BAE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conference.Common.Contracts", "Conference.Common.Contracts\Conference.Common.Contracts.csproj", "{3FE06884-C7F5-4D2A-BAA6-EE6DDB89BAE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "www", "www", "{D0A93227-4674-4EE9-A3D1-C3C4094D9AA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{34E3DFF2-7D13-44CB-ABD6-5EA62F71CB21}"
+	ProjectSection(SolutionItems) = preProject
+		..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.android.js = ..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.android.js
+		..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.ios.js = ..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.ios.js
+		..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.windows.js = ..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.windows.js
+		..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.wpf.js = ..\openmvvm\src\Core\JS\platform\js\openmvvm.bridge.wpf.js
+		..\openmvvm\src\Core\JS\platform\js\openmvvm.js = ..\openmvvm\src\Core\JS\platform\js\openmvvm.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{E8185E1D-4C08-4DFC-A5FF-551317FBF3E2}"
+	ProjectSection(SolutionItems) = preProject
+		..\openmvvm\src\Core\JS\platform\css\openmvvm.css = ..\openmvvm\src\Core\JS\platform\css\openmvvm.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "oss", "oss", "{0ACEA134-390E-4A91-B7E0-AAF53CA87473}"
+	ProjectSection(SolutionItems) = preProject
+		..\openmvvm\src\Core\JS\platform\js\oss\mt.js = ..\openmvvm\src\Core\JS\platform\js\oss\mt.js
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1112,6 +1133,10 @@ Global
 		{FF83015F-9B34-40D5-B3AB-C9BB92C3DE82} = {7581AD28-B425-4EC9-8239-5848DE7DBEB9}
 		{567ACEAD-CE93-42F5-9D8C-B06C65E56D7A} = {7581AD28-B425-4EC9-8239-5848DE7DBEB9}
 		{3FE06884-C7F5-4D2A-BAA6-EE6DDB89BAE8} = {7581AD28-B425-4EC9-8239-5848DE7DBEB9}
+		{D0A93227-4674-4EE9-A3D1-C3C4094D9AA4} = {FB9DDC21-9385-4B68-B961-7A7645C1AF41}
+		{34E3DFF2-7D13-44CB-ABD6-5EA62F71CB21} = {D0A93227-4674-4EE9-A3D1-C3C4094D9AA4}
+		{E8185E1D-4C08-4DFC-A5FF-551317FBF3E2} = {D0A93227-4674-4EE9-A3D1-C3C4094D9AA4}
+		{0ACEA134-390E-4A91-B7E0-AAF53CA87473} = {34E3DFF2-7D13-44CB-ABD6-5EA62F71CB21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83C9AA19-D5B4-4F6F-9285-76160D3796DA}

@@ -26,7 +26,7 @@
             }     
         }
 
-        public string ImageUrl => $"http://tarabica.msforge.net/Content/images/speakers/{this.speaker.Id}.jpg";
+        public string ImageUrl => (this.speaker.PictureUrl?.Contains("placeholder") ?? true) ? string.Empty : this.speaker.PictureUrl;
 
         public string Bio => this.speaker.Bio;
 

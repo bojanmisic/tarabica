@@ -31,7 +31,7 @@
 
             if (bearerToken != null)
             {
-                string q = "q=%40tarabicaconf OR %23tarabica OR %23tarabica17 OR %23tarabicamvp";
+                string q = "q=%40tarabicaconf OR %23tarabica OR %23tarabica18 OR %23tarabicamvp";
                 string count = "count=20";
                 string result_type = "result_type=recent";
                 string include_entities = "include_entities=true";
@@ -60,6 +60,11 @@
 
                         var twitterData = JsonConvert.DeserializeObject<TwitterData>(resultData);
 
+                        foreach (var tweet in twitterData.Statuses)
+                        {
+                            tweet.Text = tweet.Text.Replace("\n", " ").Replace("\t", " ");
+                        }
+
                         return twitterData;
                     }
                     catch (Exception e)
@@ -79,7 +84,7 @@
 
             if (bearerToken != null)
             {
-                string q = "q=%40tarabicaconf OR %23tarabica OR %23tarabica17 OR %23tarabicamvp";
+                string q = "q=%40tarabicaconf OR %23tarabica OR %23tarabica18 OR %23tarabicamvp";
                 string count = "count=20";
                 string result_type = "result_type=recent";
                 string include_entities = "include_entities=true";
@@ -107,6 +112,11 @@
                         string resultData = new StreamReader(await result.Content.ReadAsStreamAsync()).ReadToEnd();
 
                         var twitterData = JsonConvert.DeserializeObject<TwitterData>(resultData);
+
+                        foreach (var tweet in twitterData.Statuses)
+                        {
+                            tweet.Text = tweet.Text.Replace("\n", " ").Replace("\t", " ");
+                        }
 
                         return twitterData;
                     }
