@@ -169,7 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.Android\OpenMVVM.Android.csproj">
-      <Project>{C50609E3-6897-45DE-8F35-DDE2F79FE41F}</Project>
+      <Project>{1c6f1bbd-5b9b-48fc-acb5-9859a6734c6f}</Project>
       <Name>OpenMVVM.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.Core\OpenMVVM.Core.csproj">

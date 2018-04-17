@@ -259,7 +259,7 @@
       <IsWatchApp>false</IsWatchApp>
     </ProjectReference>
     <ProjectReference Include="..\..\openmvvm\src\Core\OpenMVVM.WebView.Ios\OpenMVVM.WebView.Ios.csproj">
-      <Project>{FA080147-D6FB-453F-AEEC-B6A1B7321730}</Project>
+      <Project>{3486bbc3-05d0-47ac-ad96-cd313b3d3f7e}</Project>
       <Name>OpenMVVM.WebView.Ios</Name>
       <IsAppExtension>false</IsAppExtension>
       <IsWatchApp>false</IsWatchApp>
