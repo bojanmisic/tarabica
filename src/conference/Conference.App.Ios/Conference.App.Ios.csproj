@@ -112,6 +112,8 @@
     <None Include="app.config" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
     <None Include="www\fonts\Roboto-100\Roboto-100.eot" />
     <None Include="www\fonts\Roboto-100\Roboto-100.ttf" />
     <None Include="www\fonts\Roboto-100\Roboto-100.woff" />
