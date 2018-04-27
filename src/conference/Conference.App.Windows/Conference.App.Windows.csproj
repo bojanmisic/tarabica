@@ -24,7 +24,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>53DC7E913A2B49BB96738C65F0A929B22A2149A0</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>CA83C29A878A80D1BF2B62BDFB889F675C51E9FD</PackageCertificateThumbprint>
     <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -119,6 +119,7 @@
     <Content Include="Assets\StoreLogo.scale-400.png" />
     <None Include="Conference.App.Windows_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
+    <None Include="Package.xml" />
     <Content Include="www\img\icons\png\calendar-add.png" />
     <Content Include="www\img\icons\png\refresh.png" />
     <Content Include="www\img\icons\svg\calendar-add.svg" />

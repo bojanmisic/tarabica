@@ -13,7 +13,7 @@
                 <viewControllerLayoutGuide type="bottom" id="148"/>
             </layoutGuides>
             <view key="view" contentMode="center" id="150">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <color key="backgroundColor" colorSpace="calibratedRGB" red="0.00784313725490196" green="0.58431372549019611" blue="0.88627450980392153" alpha="1"/>
                 <subviews>
