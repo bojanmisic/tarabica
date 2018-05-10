@@ -13,7 +13,7 @@
 
         private const string ServiceGetVersionMethod = "GetVersion";
 
-        private const string ServiceUriString = "http://tarabica.msforge.net/Device/";
+        private const string ServiceUriString = "http://www.tarabica.org/Device/";
 
         private readonly IHttpClient httpClient;
 

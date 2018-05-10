@@ -42,7 +42,7 @@
             }
             catch (Exception)
             {
-                
+
             }
 
             ConferenceData item = null;

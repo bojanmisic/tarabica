@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Tarabica</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.Conference.App.Ios</string>
+	<string>org.tarabica</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

@@ -14,7 +14,8 @@
     {
       "scale": "1x",
       "size": "20x20",
-      "idiom": "ipad"
+      "idiom": "ipad",
+      "filename": "20x20.png"
     },
     {
       "scale": "2x",
@@ -29,7 +30,8 @@
     {
       "scale": "1x",
       "size": "1024x1024",
-      "idiom": "ios-marketing"
+      "idiom": "ios-marketing",
+      "filename": "iTunesArtwork@2x.png"
     },
     {
       "scale": "2x",

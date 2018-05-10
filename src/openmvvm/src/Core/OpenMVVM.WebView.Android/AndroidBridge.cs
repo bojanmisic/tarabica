@@ -22,7 +22,7 @@
 
         public override void SendMessage(BridgeMessage message)
         {
-            var msg = JsonConvert.SerializeObject(message).Replace("'", "\\'").Replace("\\", string.Empty);
+            var msg = JsonConvert.SerializeObject(message).Replace("\\r\\n", "").Replace("\\", "\\\\");
 
             this.webViewControl.LoadUrl("javascript:" + JsFunction + "('" + JsContextName + "', '" + msg + "');");
         }

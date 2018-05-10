@@ -50,6 +50,7 @@
                 if (response != null && (response.StatusCode == HttpStatusCode.OK))
                 {
                     var responseContent = await response.Content.ReadAsStringAsync(); //.ConfigureAwait(false);
+                    responseContent = responseContent.Replace('\'', ' ');
                     return JsonConvert.DeserializeObject<T>(responseContent);
                 }
             }
