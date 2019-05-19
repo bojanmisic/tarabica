@@ -374,6 +374,5 @@ var PullToRefresh = (function () {
                 break;
             }
         });
-
-    OpenMVVM.jsBind();
+    
 })();

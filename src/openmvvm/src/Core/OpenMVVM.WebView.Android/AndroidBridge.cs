@@ -1,5 +1,7 @@
 ﻿namespace OpenMVVM.WebView.Android
 {
+    using System.Text;
+
     using global::Android.App;
 
     using Newtonsoft.Json;
@@ -11,9 +13,12 @@
 
         private global::Android.Webkit.WebView webViewControl;
 
+        private readonly Activity activity;
+
         public AndroidBridge(global::Android.Webkit.WebView webViewControl, Activity activity)
         {
             this.webViewControl = webViewControl;
+            this.activity = activity;
 
             var javaScriptMessageHandler =
                 new JavaScriptMessageHandler(activity) { NotifyAction = this.WebViewControlScriptNotify };
@@ -22,9 +27,15 @@
 
         public override void SendMessage(BridgeMessage message)
         {
-            var msg = JsonConvert.SerializeObject(message).Replace("\\r\\n", "").Replace("\\", "\\\\");
+            var msg = JsonConvert.SerializeObject(message);//.Replace("\\r\\n", "").Replace("\\", "\\\\");
 
-            this.webViewControl.LoadUrl("javascript:" + JsFunction + "('" + JsContextName + "', '" + msg + "');");
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(msg);
+            string encoded = System.Convert.ToBase64String(plainTextBytes);
+            this.activity.RunOnUiThread(
+                () =>
+                    {
+                        this.webViewControl.LoadUrl("javascript:" + JsFunction + "('" + JsContextName + "', '" + encoded + "');");
+                    });
         }
 
         private void WebViewControlScriptNotify(string message)

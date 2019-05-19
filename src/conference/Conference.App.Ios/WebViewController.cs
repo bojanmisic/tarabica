@@ -24,6 +24,7 @@ namespace Conference.App.Ios
         public override void ViewDidLoad()
         {
             base.webView = this.WebView;
+            this.WebView.BackgroundColor = UIColor.FromRGB(2, 109, 189);
             base.ViewDidLoad();
         }
     }

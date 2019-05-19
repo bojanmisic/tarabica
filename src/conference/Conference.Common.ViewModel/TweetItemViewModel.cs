@@ -14,19 +14,19 @@
         public TweetItemViewModel(Tweet tweet)
         {
             this.tweet = tweet;
-            this.tweet.Text = System.Net.WebUtility.HtmlDecode(this.tweet.Text);
+            //this.tweet.Text = System.Net.WebUtility.HtmlDecode(this.tweet.Text);
 
-            foreach (Match match in Regex.Matches(this.tweet.Text, @"(?<!\w)[#|@]\w+"))
-            {
-                this.tweet.Text = this.tweet.Text.Replace(match.Value, $"<b>{match.Value}</b>");
-            }
+            //foreach (Match match in Regex.Matches(this.tweet.Text, @"(?<!\w)[#|@]\w+"))
+            //{
+            //    this.tweet.Text = this.tweet.Text.Replace(match.Value, $"<b>{match.Value}</b>");
+            //}
         }
 
         public string Link => this.tweet.Entities.Urls?.FirstOrDefault()?.UrlString ?? string.Empty;
 
         public string ImageUrl => this.tweet.User.ImageUrl;
 
-        public string Text => this.tweet.Text;
+        public string Text => this.tweet.Text ?? this.tweet.Retweet?.FullText ?? this.tweet.FullText;
 
         public string UserName => $"@{this.tweet.User.ScreenName}";
 

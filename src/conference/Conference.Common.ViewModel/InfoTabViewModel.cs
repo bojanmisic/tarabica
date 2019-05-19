@@ -20,7 +20,7 @@
             () =>
             {
                 var parentViewModel = this.ParentMultiPage as MainViewModel;
-                parentViewModel?.WebLauncher.TryOpenUri("http://tarabica.msforge.net/Donation/Terms");
+                parentViewModel?.WebLauncher.TryOpenUri("https://tarabica.org/Donation/Terms");
             }));
 
         public override void OnNavigatedTo()

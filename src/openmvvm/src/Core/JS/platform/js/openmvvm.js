@@ -48,39 +48,63 @@ var OpenMVVM = (
         var frame = null;
         var viewCache = {};
         var currentView = "";
+        var eventListeners = {};
 
         var requestValueAndUpdates = function (path, insideTemplate) {
             bridgeService.registerBinding(path, insideTemplate);
         };
 
-        openmvvm.setValue = function (bindingPath, value) {
-            var affectedList = elementCache[bindingPath];
-            if (affectedList) {
-                for (var i = 0; i < affectedList.length; i++) {
-                    var affectedNodeBindings = affectedList[i];
-                    var bindings = affectedNodeBindings.bindings;
+        var globalizePath = function (relativePath, bindedPath) {
+            var path = bindedPath;
+            if (relativePath.slice(0, 2) === "..") {
+                relativePath = relativePath.slice(2);
+                path = path.slice(0, path.lastIndexOf("."));
+            }
+            while (relativePath[0] === '.') {
+                relativePath = relativePath.slice(1);
+                path = path.slice(0, path.lastIndexOf("."));
+            }
+            return path + '.' + relativePath;
+        }
 
-                    for (var bindingKey in bindings) {
-                        if (bindings.hasOwnProperty(bindingKey)) {
-                            var affectedElement = affectedNodeBindings.element;
+        openmvvm.setValue = function (bindingPath, value) {
+            var listOfBindingsForPath = elementCache[bindingPath];
+            if (listOfBindingsForPath) {
+                for (var i = 0; i < listOfBindingsForPath.length; i++) {
+                    var bindingInfo = listOfBindingsForPath[i];
+                    var bindingKey = bindingInfo.key;
+
+                   // for (var bindingKey in bindings) {
+                        //if (bindings.hasOwnProperty(bindingKey) && (bindingPath.endsWith("." + bindings[bindingKey]) || (bindings[bindingKey].path && bindingPath.endsWith("." + bindings[bindingKey].path)))) {
+                            var affectedElement = bindingInfo.element;
 
                             switch (bindingKey) {
-                                case 'mvvmvisible':
-                                    affectedElement.style.display = affectedNodeBindings.converter(value);
-                                    break;
-                                case 'mvvmbgcolor':
-                                    affectedElement.style.backgroundColor = affectedNodeBindings.converter(value);
-                                    break;
-                                case 'mvvmbgimage':
-                                    affectedElement.style.backgroundImage = affectedNodeBindings.converter(value);
-                                    break;
-                                default:
-                                    affectedElement[bindingKey] = affectedNodeBindings.converter(value);
+                            case 'mvvmvisible':
+                                affectedElement.style.display = bindingInfo.converter(value);
+                                break;
+                            case 'mvvmbgcolor':
+                                affectedElement.style.backgroundColor = bindingInfo.converter(value);
+                                break;
+                            case 'mvvmbgimage':
+                                affectedElement.style.backgroundImage = bindingInfo.converter(value);
+                                break;
+                            case 'mvvmsubview':
+                                if (affectedElement[bindingKey]) {
+                                    if (affectedElement[bindingKey] !== value) {
+                                        broadcast('SubviewChange', { el: affectedElement, oldVal: affectedElement[bindingKey], newVal: value });
+                                    }
+                                } else {
+                                    broadcast('SubviewChange', { el: affectedElement, oldVal: null, newVal: value });
+                                }
+                                affectedElement[bindingKey] = value;
+                                break;
+                            default:
+                                affectedElement[bindingKey] = bindingInfo.converter(value);
                             }
                         }
                     }
-                }
-            }
+            //    }
+            //}
 
             var collectionList = collectionCache[bindingPath];
             if (collectionList) {
@@ -93,34 +117,20 @@ var OpenMVVM = (
             var otherAffected = Object.keys(elementCache).filter(function (k) {
                 return k.indexOf(bindingPath + ".") === 0;
             }).reduce(function (newData, k) {
-                newData[k] = elementCache[k];
-                return newData;
-            },
+                    newData[k] = elementCache[k];
+                    return newData;
+                },
                 {});
 
             if (otherAffected) {
                 for (var item in otherAffected) {
                     if (otherAffected.hasOwnProperty(item)) {
                         var affectedSubPath = item;
-                        applyValue(affectedSubPath);
+                        requestValueAndUpdates(affectedSubPath);
                     }
                 }
             }
 
-        };
-
-        var applyValue = function (bindingPath, insideTemplate) {
-            var affectedList = elementCache[bindingPath];
-            for (var i = 0; i < affectedList.length; i++) {
-                var affectedNodeBindings = affectedList[i];
-                var bindings = affectedNodeBindings.bindings;
-
-                for (var bindingKey in bindings) {
-                    if (bindings.hasOwnProperty(bindingKey)) {
-                        requestValueAndUpdates(bindingPath, insideTemplate);
-                    }
-                }
-            }
         };
 
         var createHandler = function (bindingPath, param) {
@@ -129,6 +139,27 @@ var OpenMVVM = (
                 bridgeService.fireCommand(bindingPath, param);
             }
         }
+
+
+        var createBindingInfo = function(element, key, insideTemplate, converter, parameter) {
+            var binding = {
+                element: element,
+                key: key,
+                insideTemplate: insideTemplate,
+                converter: converter,
+                parameter: parameter
+            };
+
+            return binding;
+        };
+
+        var saveBinding = function(bindingPath, binding) {
+            if (!elementCache[bindingPath]) {
+                elementCache[bindingPath] = [binding];
+            } else {
+                elementCache[bindingPath].push(binding);
+            }
+        };
 
         var parseActions = function (child, dataContext, insideTemplate) {
             var actionsAttributeValue = child.getAttribute('data-actions');
@@ -149,37 +180,20 @@ var OpenMVVM = (
                             parameter = descriptor.parameter;
                         }
 
+                        var binding = createBindingInfo(child, key, insideTemplate, null, parameter);
+
                         var overridenDataContext = child.getAttribute('data-context');
 
                         if (overridenDataContext) {
                             dataContext = overridenDataContext;
                         }
 
-                        var bindingPath = dataContext + "." + path;
+                        var bindingPath = globalizePath(path, dataContext);
 
-                        var binding = {
-                            element: child,
-                            bindings: bindingDescriptor,
-                            insideTemplate: insideTemplate,
-                            parameter: parameter
-                        }
+                        saveBinding(bindingPath, binding);
 
-                        if (!elementCache[bindingPath]) {
-                            elementCache[bindingPath] = [binding];
-                        } else {
-                            elementCache[bindingPath].push(binding);
-                        }
-
-                        var bindings = binding.bindings;
-
-                        for (var bindingKey in bindings) {
-                            if (bindings.hasOwnProperty(bindingKey)) {
-                                var affectedElement = binding.element;
-
-                                var value = createHandler(bindingPath, parameter);
-                                affectedElement.addEventListener(bindingKey, value);
-                            }
-                        }
+                        var value = createHandler(bindingPath, parameter);
+                        child.addEventListener(key, value);
                     }
                 }
             }
@@ -188,7 +202,7 @@ var OpenMVVM = (
         var parseBind = function (child, dataContext, insideTemplate) {
             var bindAttributeValue = child.getAttribute('data-bind');
             if (bindAttributeValue) {
-
+                var context = dataContext;
                 var bindingDescriptor = eval('(' + bindAttributeValue + ')');
                 for (var key in bindingDescriptor) {
                     if (bindingDescriptor.hasOwnProperty(key)) {
@@ -202,40 +216,65 @@ var OpenMVVM = (
                             converter = descriptor.converter;
                         }
 
+                        var binding = createBindingInfo(child, key, insideTemplate, converter);
+
                         var overridenDataContext = child.getAttribute('data-context');
 
                         if (overridenDataContext) {
                             dataContext = overridenDataContext;
                         }
 
-                        var bindingPath = dataContext + "." + path;
+                        var bindingPath = globalizePath(path, dataContext);
 
-                        var binding = {
-                            element: child,
-                            bindings: bindingDescriptor,
-                            insideTemplate: insideTemplate,
-                            converter: converter
-                        }
-
-                        if (!elementCache[bindingPath]) {
-                            elementCache[bindingPath] = [binding];
-                        } else {
-                            elementCache[bindingPath].push(binding);
-                        }
+                        saveBinding(bindingPath, binding);
 
                         if (key === "value") {
-                            child.addEventListener('input',
-                                function (event) {
-                                    var newValue = child.value;
-                                    var path = bindingPath;
+                            if (child.type === 'radio') {
+                                var bpath = bindingPath;
+                                child.addEventListener('change',
+                                    function (event) {
+                                        
+                                        if (child.checked) {
+                                            var newValue = child.value;
 
-                                    // this is the place where 'convertBack' can be applied
+                                            // converteri i ovde, convert back!
+                                            var relativePath = child.getAttribute('data-selected-bind');
 
-                                    bridgeService.propertySet(path, newValue);
-                                });
+                                            var newPath = relativePath ? globalizePath(relativePath, bpath) : bpath;
+
+                                            bridgeService.propertySet(newPath, newValue);
+                                        }
+                                        
+                                    });
+                            }
+                            else {
+                                var bpath = bindingPath;
+                                child.addEventListener('input',
+                                    function (event) {
+                                        var newValue = child.value;
+
+                                        // converteri i ovde, convert back!
+
+                                        bridgeService.propertySet(bpath, newValue);
+                                    });
+                            }
+                            
                         }
+                        if (key === "checked") {
+                            if (child.type === 'checkbox') {
+                                var bpath = bindingPath;
+                                child.addEventListener('change',
+                                    function (event) {
+                                        var newValue = child.checked;
 
-                        applyValue(bindingPath, insideTemplate);
+                                        bridgeService.propertySet(bpath, newValue);
+
+
+                                    });
+                            }
+
+                        }
+                        requestValueAndUpdates(bindingPath, insideTemplate);
                     }
                 }
             }
@@ -289,9 +328,9 @@ var OpenMVVM = (
                 var otherAffected = Object.keys(elementCache).filter(function (k) {
                     return k.indexOf(collectionPath + "[") === 0;
                 }).reduce(function (newData, k) {
-                    newData[k] = elementCache[k];
-                    return newData;
-                },
+                        newData[k] = elementCache[k];
+                        return newData;
+                    },
                     {});
 
                 var temp = {};
@@ -357,37 +396,48 @@ var OpenMVVM = (
             }
         };
 
+        var broadcast = function (event, data) {
+            // console.log('broadcast', event, data);
+            for (var e in eventListeners) {
+                if (e === event) {
+                    for (var i = 0; i < eventListeners[e].length; i++) {
+                        eventListeners[e][i](data);
+                    }
+                    break;
+                }
+            }
+        }
+
         openmvvm.handleCollectionChange = function (path, parameter) {
             var current = collectionCache[path];
             var rootElement = current.rootElement;
             var template = current.template;
 
-            // need to implement all actions
             switch (parameter.Action) {
-                case 0: // add
-                    renderCollectionItemFromTemplate(path, template, rootElement, parameter.NewStartingIndex);
-                    break;
-                case 4:
-                    var otherAffected = Object.keys(elementCache).filter(function (k) {
-                        return k.indexOf(current + "[") === 0;
-                    }).reduce(function (newData, k) {
+            case 0: // add
+                renderCollectionItemFromTemplate(path, template, rootElement, parameter.NewStartingIndex);
+                break;
+            case 4:
+                var otherAffected = Object.keys(elementCache).filter(function (k) {
+                    return k.indexOf(current + "[") === 0;
+                }).reduce(function (newData, k) {
                         newData[k] = elementCache[k];
                         return newData;
                     },
-                        {});
-                    for (var item in otherAffected) {
-                        if (otherAffected.hasOwnProperty(item)) {
-                            var affected = otherAffected[item];
-                            for (var i = 0; i < affected.length; i++) {
-                                var affectedNodeBinding = affected[i];
-                                if (affectedNodeBinding.insideTemplate) {
-                                    // this can be done better
-                                    delete elementCache[item];
-                                }
+                    {});
+                for (var item in otherAffected) {
+                    if (otherAffected.hasOwnProperty(item)) {
+                        var affected = otherAffected[item];
+                        for (var i = 0; i < affected.length; i++) {
+                            var affectedNodeBinding = affected[i];
+                            if (affectedNodeBinding.insideTemplate) {
+                                // ovo izmeniti
+                                delete elementCache[item];
                             }
                         }
                     }
-                    break;
+                }
+                break;
             }
         };
 
@@ -402,6 +452,8 @@ var OpenMVVM = (
                 });
                 return;
             }
+
+            //elementCache = {};
 
             var startViewElement = viewCache[viewName].element;
 
@@ -418,7 +470,9 @@ var OpenMVVM = (
             }
 
             frame.appendChild(startViewElement);
-          
+
+            broadcast('ViewChange', { prev: currentView, next: viewName });
+
             currentView = viewName;
         }
 
@@ -427,7 +481,7 @@ var OpenMVVM = (
             var bind = function () {
 
                 frame = document.querySelector('[data-mvvmstart]');
-                
+
                 var viewElements = document.querySelectorAll('[data-view]');
 
                 for (var i = 0; i < viewElements.length; i++) {
@@ -450,8 +504,13 @@ var OpenMVVM = (
             }
         };
 
+        openmvvm.on = function (event, callback) {
+            if (eventListeners[event] === undefined) {
+                eventListeners[event] = [];
+            }
+            eventListeners[event].push(callback);
+        };
+
         return openmvvm;
     }(OpenMVVM || {})
 );
-
-OpenMVVM.jsBind();

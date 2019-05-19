@@ -1,5 +1,7 @@
 ﻿namespace OpenMVVM.WebView
 {
+    using System;
+    using System.Diagnostics;
     using System.Linq;
     using System.Reflection;
 
@@ -19,12 +21,14 @@
 
         public void NotifyValueChanged(string path, object value)
         {
+            //Debug.WriteLine($"OPENMVVM C#->JS: ValueChanged, {path}");
             this.bridge.SendMessage(
                 new BridgeMessage() { FunctionName = "setValue", Params = new object[] { path, value } });
         }
 
         public void NotifyCollectionChanged(string path, object param)
         {
+            //Debug.WriteLine($"OPENMVVM C#->JS: CollectionChanged, {path}");
             this.bridge.SendMessage(
                 new BridgeMessage() { FunctionName = "handleCollectionChange", Params = new object[] { path, param } });
         }
@@ -33,6 +37,8 @@
         {
             var targetObjectType = this.targetObject.GetType();
             var methodInfo = targetObjectType.GetRuntimeMethods().FirstOrDefault(m => m.Name == e.FunctionName && m.GetParameters().Length == e.Params.Length);
+
+            //Debug.WriteLine($"OPENMVVM JS->C#: {e.FunctionName}, {string.Join(", ", e.Params)}");
 
             methodInfo?.Invoke(this.targetObject, e.Params);
         }

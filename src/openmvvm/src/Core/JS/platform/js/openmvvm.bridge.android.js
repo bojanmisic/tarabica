@@ -21,7 +21,8 @@ var OpenMVVM = (
 );
 
 var receiveMessage = function (context, message) {
-    var messageObject = JSON.parse(message);
+    var jsonData = Base64.decode(message);
+    var messageObject = JSON.parse(jsonData);
     this[context][messageObject.FunctionName].apply(this, messageObject.Params);
 }
 

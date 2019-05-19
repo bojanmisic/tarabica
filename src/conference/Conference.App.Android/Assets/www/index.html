@@ -20,16 +20,18 @@
 
 <body>
 
-<div data-mvvmstart class="view-container"></div>
+    <div data-mvvmstart class="view-container"></div>
+    <script src="js/base64.min.js"></script>
+    <script src="platform/js/openmvvm.bridge.android.js"></script>
+    <script src="platform/js/openmvvm.js"></script>
 
-<script src="platform/js/openmvvm.bridge.android.js"></script>
-<script src="platform/js/openmvvm.js"></script>
-
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/hammer.min.js"></script>
-<script src="js/modernizr.min.js"></script>
-<script src="js/app.js"></script>
-
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        OpenMVVM.jsBind();
+    </script>
 </body>
 
 </html>

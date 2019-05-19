@@ -31,13 +31,14 @@
 
             if (bearerToken != null)
             {
-                string q = "q=%40tarabicaconf OR %23tarabica OR %23tarabica18 OR %23tarabicamvp";
+                string q = "q=%40tarabicaconf OR %23tarabica OR %23tarabica19 OR %23tarabicamvp";
                 string count = "count=20";
                 string result_type = "result_type=recent";
                 string include_entities = "include_entities=true";
+                string tweet_mode = "tweet_mode=extended";
                 string since_id = String.Format("since_id={0}", minId);
 
-                string query = "?" + q + "&" + count + "&" + include_entities + "&" + result_type + "&" + since_id;
+                string query = "?" + q + "&" + count + "&" + include_entities + "&" + tweet_mode + "&" + result_type + "&" + since_id;
 
                 HttpClientHandler handler = new HttpClientHandler()
                 {
@@ -60,10 +61,10 @@
 
                         var twitterData = JsonConvert.DeserializeObject<TwitterData>(resultData);
 
-                        foreach (var tweet in twitterData.Statuses)
-                        {
-                            tweet.Text = tweet.Text.Replace("\n", " ").Replace("\t", " ");
-                        }
+                        //foreach (var tweet in twitterData.Statuses)
+                        //{
+                        //    tweet.Text = tweet.Text.Replace("\n", " ").Replace("\t", " ");
+                        //}
 
                         return twitterData;
                     }
@@ -75,7 +76,7 @@
                 }              
             }
 
-            return ServiceResult<TwitterData>.CreateError(0, "Could not authorize Twitter service. Please check your Internet connection.", "");
+            return ServiceResult<TwitterData>.CreateError(0, "Došlo je do greške prilikom komunikacije sa Twitter serverom. Proverite Internet konekciju.", "");
         }
 
         public async Task<ServiceResult<TwitterData>> GetOlderTweets(long maxId)
@@ -84,13 +85,14 @@
 
             if (bearerToken != null)
             {
-                string q = "q=%40tarabicaconf OR %23tarabica OR %23tarabica18 OR %23tarabicamvp";
+                string q = "q=%40tarabicaconf OR %23tarabica OR %23tarabica19 OR %23tarabicamvp";
                 string count = "count=20";
                 string result_type = "result_type=recent";
                 string include_entities = "include_entities=true";
+                string tweet_mode = "tweet_mode=extended";
                 string since_id = String.Format("max_id={0}", maxId);
 
-                string query = "?" + q + "&" + count + "&" + include_entities + "&" + result_type + "&" + since_id;
+                string query = "?" + q + "&" + count + "&" + include_entities + "&" + tweet_mode + "&" + result_type + "&" + since_id;
 
                 HttpClientHandler handler = new HttpClientHandler()
                 {
@@ -113,10 +115,10 @@
 
                         var twitterData = JsonConvert.DeserializeObject<TwitterData>(resultData);
 
-                        foreach (var tweet in twitterData.Statuses)
-                        {
-                            tweet.Text = tweet.Text.Replace("\n", " ").Replace("\t", " ");
-                        }
+                        //foreach (var tweet in twitterData.Statuses)
+                        //{
+                        //    tweet.Text = tweet.Text.Replace("\n", " ").Replace("\t", " ");
+                        //}
 
                         return twitterData;
                     }
@@ -128,7 +130,7 @@
                 }
             }
 
-            return ServiceResult<TwitterData>.CreateError(0, "Could not authorize Twitter service. Please check your Internet connection.", "");
+            return ServiceResult<TwitterData>.CreateError(0, "Došlo je do greške prilikom komunikacije sa Twitter serverom. Proverite Internet konekciju.", "");
         }
 
         private async Task<AuthorizationResponse> Authorize()

@@ -22,6 +22,14 @@ namespace Conference.App.Ios
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
 
+            // Set StatusBar Background
+            var statusBar = UIApplication.SharedApplication.ValueForKey(new NSString("statusBar")) as UIView;
+            if (statusBar?.RespondsToSelector(new ObjCRuntime.Selector("setBackgroundColor:")) ?? false)
+            {
+                statusBar.BackgroundColor = UIColor.FromRGB(0, 171, 248);
+                statusBar.TintColor = UIColor.White;
+            }
+
             return true;
         }
 
